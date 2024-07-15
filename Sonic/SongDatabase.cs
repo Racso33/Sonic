@@ -93,6 +93,11 @@ namespace Sonic {
             Songs = new List<Song>();
             Playlists = new List<Playlist>();
         }
+        public Playlist GetAllSongs() {
+            var res = new Playlist();
+            res.Songs = Songs;
+            return res;
+        }
         public void LoadSongDatabase(string dbPath) {
             XmlDocument db = new XmlDocument();
             db.Load(dbPath);

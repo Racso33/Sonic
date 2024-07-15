@@ -1,5 +1,5 @@
 ﻿namespace Sonic {
-    partial class Form1 {
+    partial class MainForm {
         /// <summary>
         ///  Required designer variable.
         /// </summary>
@@ -24,12 +24,6 @@
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
-            listView1 = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            listView2 = new ListView();
-            columnHeader3 = new ColumnHeader();
-            columnHeader4 = new ColumnHeader();
             contextMenuStrip1 = new ContextMenuStrip(components);
             sfToolStripMenuItem = new ToolStripMenuItem();
             renameToolStripMenuItem = new ToolStripMenuItem();
@@ -44,58 +38,17 @@
             textBox1 = new TextBox();
             toolStrip1 = new ToolStrip();
             toolStripDropDownButton1 = new ToolStripDropDownButton();
+            importToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            preferencesToolStripMenuItem = new ToolStripMenuItem();
+            songViewer3 = new SongViewer();
+            playlistViewer1 = new PlaylistViewer();
             contextMenuStrip1.SuspendLayout();
             contextMenuStrip2.SuspendLayout();
             contextMenuStrip3.SuspendLayout();
             toolStrip1.SuspendLayout();
             SuspendLayout();
-            // 
-            // listView1
-            // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
-            listView1.Location = new Point(562, 57);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(690, 532);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
-            listView1.MouseDown += listView1_MouseDown;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "Name";
-            columnHeader1.Width = 300;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "Vid id";
-            columnHeader2.Width = 120;
-            // 
-            // listView2
-            // 
-            listView2.Columns.AddRange(new ColumnHeader[] { columnHeader3, columnHeader4 });
-            listView2.LabelEdit = true;
-            listView2.Location = new Point(12, 56);
-            listView2.Name = "listView2";
-            listView2.Size = new Size(544, 533);
-            listView2.TabIndex = 1;
-            listView2.UseCompatibleStateImageBehavior = false;
-            listView2.View = View.Details;
-            listView2.AfterLabelEdit += listView2_AfterLabelEdit;
-            listView2.SelectedIndexChanged += listView2_SelectedIndexChanged;
-            listView2.KeyDown += listView2_KeyDown;
-            listView2.MouseDown += listView2_MouseDown;
-            // 
-            // columnHeader3
-            // 
-            columnHeader3.Text = "Name";
-            columnHeader3.Width = 300;
-            // 
-            // columnHeader4
-            // 
-            columnHeader4.Text = "Yt id";
-            columnHeader4.Width = 120;
             // 
             // contextMenuStrip1
             // 
@@ -172,7 +125,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(1005, 28);
+            textBox1.Location = new Point(1005, 27);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Filter";
             textBox1.Size = new Size(247, 23);
@@ -192,33 +145,63 @@
             // toolStripDropDownButton1
             // 
             toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
+            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { importToolStripMenuItem, toolStripMenuItem1, toolStripSeparator1, preferencesToolStripMenuItem });
             toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
             toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             toolStripDropDownButton1.ShowDropDownArrow = false;
             toolStripDropDownButton1.Size = new Size(29, 22);
             toolStripDropDownButton1.Text = "File";
             // 
+            // importToolStripMenuItem
+            // 
+            importToolStripMenuItem.Name = "importToolStripMenuItem";
+            importToolStripMenuItem.Size = new Size(135, 22);
+            importToolStripMenuItem.Text = "Import";
+            // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(180, 22);
-            toolStripMenuItem1.Text = "Export As File Tree";
+            toolStripMenuItem1.Size = new Size(135, 22);
+            toolStripMenuItem1.Text = "Export";
             toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
-            // Form1
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(132, 6);
+            // 
+            // preferencesToolStripMenuItem
+            // 
+            preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
+            preferencesToolStripMenuItem.Size = new Size(135, 22);
+            preferencesToolStripMenuItem.Text = "Preferences";
+            // 
+            // songViewer3
+            // 
+            songViewer3.Location = new Point(588, 56);
+            songViewer3.Name = "songViewer3";
+            songViewer3.Size = new Size(664, 533);
+            songViewer3.TabIndex = 5;
+            // 
+            // playlistViewer1
+            // 
+            playlistViewer1.Location = new Point(12, 56);
+            playlistViewer1.Name = "playlistViewer1";
+            playlistViewer1.Size = new Size(570, 533);
+            playlistViewer1.TabIndex = 6;
+            // 
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 601);
+            Controls.Add(playlistViewer1);
+            Controls.Add(songViewer3);
             Controls.Add(toolStrip1);
             Controls.Add(textBox1);
             Controls.Add(button1);
-            Controls.Add(listView2);
-            Controls.Add(listView1);
-            Name = "Form1";
+            Name = "MainForm";
             Text = "Form1";
-            Load += Form1_Load;
             contextMenuStrip1.ResumeLayout(false);
             contextMenuStrip2.ResumeLayout(false);
             contextMenuStrip3.ResumeLayout(false);
@@ -229,27 +212,27 @@
         }
 
         #endregion
-
-        private ListView listView1;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ListView listView2;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem sfToolStripMenuItem;
         private Button button1;
         private ToolStripMenuItem renameToolStripMenuItem;
-        private ContextMenuStrip contextMenuStrip2;
+        public ContextMenuStrip contextMenuStrip2;
         private ToolStripMenuItem addToToolStripMenuItem;
         private ToolStripMenuItem removeToolStripMenuItem;
         private ToolStripMenuItem renameToolStripMenuItem1;
         private ToolStripMenuItem aToolStripMenuItem;
-        private ContextMenuStrip contextMenuStrip3;
+        public ContextMenuStrip contextMenuStrip3;
         private ToolStripMenuItem newPlaylistToolStripMenuItem;
         private TextBox textBox1;
         private ToolStrip toolStrip1;
         private ToolStripDropDownButton toolStripDropDownButton1;
         private ToolStripMenuItem toolStripMenuItem1;
+        private SongViewer songviewer2;
+        private SongViewer songviewer1;
+        public SongViewer songViewer3;
+        private PlaylistViewer playlistViewer1;
+        private ToolStripMenuItem importToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem preferencesToolStripMenuItem;
     }
 }
