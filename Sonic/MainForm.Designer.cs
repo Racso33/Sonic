@@ -43,7 +43,9 @@
             toolStripSeparator1 = new ToolStripSeparator();
             preferencesToolStripMenuItem = new ToolStripMenuItem();
             songViewer3 = new SongViewer();
-            playlistViewer1 = new PlaylistViewer();
+            label1 = new Label();
+            label2 = new Label();
+            playlistViewer2 = new PlaylistViewer();
             contextMenuStrip1.SuspendLayout();
             contextMenuStrip2.SuspendLayout();
             contextMenuStrip3.SuspendLayout();
@@ -157,6 +159,7 @@
             importToolStripMenuItem.Name = "importToolStripMenuItem";
             importToolStripMenuItem.Size = new Size(135, 22);
             importToolStripMenuItem.Text = "Import";
+            importToolStripMenuItem.Click += importToolStripMenuItem_Click;
             // 
             // toolStripMenuItem1
             // 
@@ -178,28 +181,48 @@
             // 
             // songViewer3
             // 
-            songViewer3.Location = new Point(588, 56);
+            songViewer3.Location = new Point(503, 56);
             songViewer3.Name = "songViewer3";
-            songViewer3.Size = new Size(664, 533);
+            songViewer3.Size = new Size(749, 533);
             songViewer3.TabIndex = 5;
             // 
             // playlistViewer1
             // 
-            playlistViewer1.Location = new Point(12, 56);
-            playlistViewer1.Name = "playlistViewer1";
-            playlistViewer1.Size = new Size(570, 533);
-            playlistViewer1.TabIndex = 6;
+            playlistViewer2.Location = new Point(12, 56);
+            playlistViewer2.Name = "playlistViewer1";
+            playlistViewer2.Size = new Size(570, 533);
+            playlistViewer2.TabIndex = 6;
+            // 
+            // label1
+            // 
+            label1.Location = new Point(0, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(100, 23);
+            label1.TabIndex = 6;
+            label1.Text = "label1";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(503, 25);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 20);
+            label2.TabIndex = 7;
+            label2.Text = "label2";
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 601);
-            Controls.Add(playlistViewer1);
+            Controls.Add(label2);
             Controls.Add(songViewer3);
+            Controls.Add(playlistViewer2);
             Controls.Add(toolStrip1);
             Controls.Add(textBox1);
             Controls.Add(button1);
+            Controls.Add(label1);
             Name = "MainForm";
             Text = "Form1";
             contextMenuStrip1.ResumeLayout(false);
@@ -216,12 +239,12 @@
         private ToolStripMenuItem sfToolStripMenuItem;
         private Button button1;
         private ToolStripMenuItem renameToolStripMenuItem;
-        public ContextMenuStrip contextMenuStrip2;
+        private ContextMenuStrip contextMenuStrip2;
         private ToolStripMenuItem addToToolStripMenuItem;
         private ToolStripMenuItem removeToolStripMenuItem;
         private ToolStripMenuItem renameToolStripMenuItem1;
         private ToolStripMenuItem aToolStripMenuItem;
-        public ContextMenuStrip contextMenuStrip3;
+        private ContextMenuStrip contextMenuStrip3;
         private ToolStripMenuItem newPlaylistToolStripMenuItem;
         private TextBox textBox1;
         private ToolStrip toolStrip1;
@@ -229,10 +252,12 @@
         private ToolStripMenuItem toolStripMenuItem1;
         private SongViewer songviewer2;
         private SongViewer songviewer1;
-        public SongViewer songViewer3;
-        private PlaylistViewer playlistViewer1;
+        private SongViewer songViewer3;
         private ToolStripMenuItem importToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem preferencesToolStripMenuItem;
+        private Label label1;
+        private PlaylistViewer playlistViewer2;
+        private Label label2;
     }
 }

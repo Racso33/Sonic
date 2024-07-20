@@ -1,11 +1,13 @@
-﻿using System.Security.Policy;
-using System.Windows.Forms;
-using System.Xml;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
-namespace Sonic {
+﻿namespace Sonic {
     public partial class MainForm : Form {
+        public string playlistlabel { set { label2.Text = value; } }
+        public SongViewer songviewer { get { return songViewer3; } }
+        public ContextMenuStrip menustrip1 { get { return contextMenuStrip1; } }
+        public ContextMenuStrip menustrip2 { get { return contextMenuStrip2; } }
+        public ContextMenuStrip menustrip3 { get { return contextMenuStrip3; } }
+        public PlaylistViewer playlistviewer { get { return playlistViewer2; } }
         public MainForm() {
+            Program.mainForm = this;
             InitializeComponent();
             songViewer3.SetPlaylist(Program.songdb.Playlists[0]);
         }
@@ -43,7 +45,12 @@ namespace Sonic {
 
         }
         private void newPlaylistToolStripMenuItem_Click(object sender, EventArgs e) {
-            playlistViewer1.CreateItem();
+            playlistviewer.CreateItem();
+        }
+
+        private void importToolStripMenuItem_Click(object sender, EventArgs e) {
+            var dialog = new ImportDialog();
+            dialog.ShowDialog();
         }
     }
 }

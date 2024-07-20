@@ -14,6 +14,7 @@ namespace Sonic {
             InitializeComponent();
             LoadView();
         }
+
         private void LoadView() {
             listView1.Items.Clear();
             var i = new ListViewItem("All Songs");
@@ -29,12 +30,6 @@ namespace Sonic {
             res.SubItems.Add(p.YoutubeId);
             res.Tag = p;
             return res;
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e) {
-            if (listView1.SelectedItems.Count > 0) {
-                Program.mainForm.songViewer3.SetPlaylist((Playlist)listView1.SelectedItems[0].Tag);
-            }
         }
         public void CreateItem() {
             var item = new ListViewItem();
@@ -56,9 +51,15 @@ namespace Sonic {
             }
         }
 
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e) {
+            if (listView1.SelectedItems.Count > 0) {
+                Program.mainForm.songviewer.SetPlaylist((Playlist)listView1.SelectedItems[0].Tag);
+            }
+        }
+
         private void listView1_MouseDown(object sender, MouseEventArgs e) {
-            if(e.Button == MouseButtons.Right) {
-                Program.mainForm.contextMenuStrip3.Show(e.Location);
+            if (e.Button == MouseButtons.Right) {
+                Program.mainForm.menustrip3.Show(e.Location);
             }
         }
     }

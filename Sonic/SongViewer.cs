@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Sonic {
     public partial class SongViewer : UserControl {
@@ -30,13 +31,23 @@ namespace Sonic {
             item.Tag = song;
             return item;
         }
-        void ReloadView() {
+        private bool FilterMatch(string filter, Song song) {
+            var res = true;
+            foreach(string s in filter.ToLower().Split(" ")) {
+                if(!song.Title.ToLower().Contains(s)) {
+                    res = false;
+                }
+            }
+            return res;
+        }
+        public void ReloadView() {
             if(_ShownPlaylist == null) {
                 return;
             }
+            Program.mainForm.playlistlabel = _ShownPlaylist.Title;
             listView1.Items.Clear();
             foreach (Song s in _ShownPlaylist.Songs) {
-                if(_Filter != null && !s.Title.StartsWith(_Filter)) {
+                if(_Filter != null && !FilterMatch(_Filter, s)) {
                     continue;
                 }
                 var item = SongToListItem(s);
@@ -56,7 +67,7 @@ namespace Sonic {
             }
         }
         private void ShowContextMenu(Point p) {
-            var menu = (ToolStripMenuItem)Program.mainForm.contextMenuStrip2.Items.Find("addToToolStripMenuItem", false)[0];
+            var menu = (ToolStripMenuItem)Program.mainForm.menustrip2.Items.Find("addToToolStripMenuItem", false)[0];
             menu.DropDownItems.Clear();
             foreach(Playlist pl in Program.songdb.Playlists) {
                 var item = new ToolStripMenuItem(pl.Title);
@@ -64,11 +75,14 @@ namespace Sonic {
                 item.Click += Item_Click;
                 menu.DropDownItems.Add(item);
             }
-            Program.mainForm.contextMenuStrip2.Show(p);
+            Program.mainForm.menustrip2.Show(p);
         }
         private void Item_Click(object? sender, EventArgs e) {
             var p = ((ToolStripMenuItem)sender).Tag as Playlist;
-            p.Songs.Add((Song)listView1.SelectedItems[0].Tag);
+            foreach(ListViewItem s in listView1.SelectedItems) {
+                var song = s.Tag as Song;
+                p.Songs.Add(song);
+            }
         }
     }
 }

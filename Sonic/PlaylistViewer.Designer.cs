@@ -35,7 +35,7 @@
             listView1.LabelEdit = true;
             listView1.Location = new Point(0, 0);
             listView1.Name = "listView1";
-            listView1.Size = new Size(829, 579);
+            listView1.Size = new Size(880, 511);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
@@ -50,7 +50,7 @@
             // 
             // columnHeader2
             // 
-            columnHeader2.Text = "id";
+            columnHeader2.Text = "Id";
             columnHeader2.Width = 120;
             // 
             // PlaylistViewer
@@ -59,7 +59,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(listView1);
             Name = "PlaylistViewer";
-            Size = new Size(829, 579);
+            Size = new Size(880, 511);
             ResumeLayout(false);
         }
 

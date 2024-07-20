@@ -95,6 +95,7 @@ namespace Sonic {
         }
         public Playlist GetAllSongs() {
             var res = new Playlist();
+            res.Title = "All Songs";
             res.Songs = Songs;
             return res;
         }
