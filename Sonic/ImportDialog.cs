@@ -78,7 +78,7 @@ namespace Sonic {
                         /* if this fails, it shouldnt add the song. Also,
                            Show a dialog of the failed song downloads.
                         */
-                        var downerror = YoutubeDownloader.DownloadSong(s, "E:\\cool\\toonz\\TestDownload");
+                        var downerror = YoutubeDownloader.DownloadSong(s, Program.DownloadLocation);
                         if (!downerror) {
                             failed.Add(s);
                             continue;

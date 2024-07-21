@@ -45,7 +45,6 @@
             songViewer3 = new SongViewer();
             label1 = new Label();
             label2 = new Label();
-            playlistViewer2 = new PlaylistViewer();
             contextMenuStrip1.SuspendLayout();
             contextMenuStrip2.SuspendLayout();
             contextMenuStrip3.SuspendLayout();

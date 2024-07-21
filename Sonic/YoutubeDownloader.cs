@@ -53,18 +53,38 @@ namespace Sonic {
         TODOOOOO:
         Error reporting
         */
+        private static bool CheckYtDlp() {
+            return File.Exists(Program.YtDlpPath);
+        }
+        private static bool CheckFfmpeg() {
+            return File.Exists(Program.FfmpegPath);
+        }
+        private static bool CheckDependencies() {
+            var ytdlp = CheckYtDlp();
+            var ffmpeg = CheckFfmpeg();
+            if (!ytdlp) MessageBox.Show("Missing yt-dlp, you can set it in the preferences");
+            if (!ffmpeg) MessageBox.Show("Missing ffmpeg, you can set it in the preferences");
+            return ytdlp && ffmpeg;
+        }
+        private static string CheckDependencies_AddError(string str, string error) {
+            if(str == null) {
+                return error;
+            }
+            return $"{str}, {error}";
+        }
         public static Playlist GetPlaylist(string url) {
             /* Fill playlist with title, and songs. And watchid. */
             Playlist res = PlaylistExtractor.Extract(url);
             return res;
         }
         public static bool DownloadSong(Song s, string path) {
+            if (!CheckDependencies()) return false;
             if (!Directory.Exists(path)) {
                 Directory.CreateDirectory(path);
             }
             var ytDlpProc = new Process();
-            ytDlpProc.StartInfo.FileName = "E:\\yt-dlp\\yt-dlp.exe";
-            ytDlpProc.StartInfo.Arguments = $"--ffmpeg-location E:\\ffmpeg\\bin\\ffmpeg.exe -P {path} {s.WatchId}";
+            ytDlpProc.StartInfo.FileName = $"{Program.YtDlpPath}";
+            ytDlpProc.StartInfo.Arguments = $"--ffmpeg-location {Program.FfmpegPath} -P {path} {s.WatchId}";
             ytDlpProc.StartInfo.UseShellExecute = false;
             ytDlpProc.Start();
             ytDlpProc.WaitForExit();
