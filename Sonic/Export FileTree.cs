@@ -28,6 +28,7 @@ namespace Sonic {
                 if (!r) return;
             }
             Program.songdb.CreatePlaylistDirectory(textBox1.Text);
+            progressBar1.Value = 100;
             //double prog=0;
             //var thread = new Thread(() => Program.songdb.CreatePlaylistDirectory(textBox1.Text, out prog));
             //thread.Start();
