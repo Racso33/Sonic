@@ -47,7 +47,7 @@ namespace Sonic {
         private ListViewItem SongToListViewItem(Song song) {
             ListViewItem item = new ListViewItem(song.Title);
             var downloaded = item.SubItems.Add(new ListViewItem.ListViewSubItem());
-            downloaded.Text = song.DiskPath != null ? "Yes" : "No";
+            downloaded.Text = File.Exists(song.DiskPath) ? "Yes" : "No";
             item.Tag = song;
             return item;
         }
@@ -80,7 +80,7 @@ namespace Sonic {
                     }
                 }
                 if (!exists) {
-                    if(s.DiskPath == null) {
+                    if(!File.Exists(s.DiskPath)) {
                         /* if this fails, it shouldnt add the song. Also,
                            Show a dialog of the failed song downloads.
                         */

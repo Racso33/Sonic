@@ -84,7 +84,7 @@ namespace Sonic {
             ytDlpProc.Start();
             ytDlpProc.WaitForExit();
             if(ytDlpProc.ExitCode != 0) return false;
-            s.DiskPath = $"{path}\\{s.Title}";
+            s.DiskPath = $"{path}\\{s.DiskPath}";
             return true;
         }
     }
@@ -132,6 +132,7 @@ namespace Sonic {
             JsonElement playlist;
             JsonElement playlistId;
             JsonElement title;
+            JsonElement filename;
             if (json.RootElement.TryGetProperty("id", out watchId)) {
                 song.WatchId = watchId.GetString();
             }
@@ -141,6 +142,9 @@ namespace Sonic {
             }
             if (json.RootElement.TryGetProperty("title", out title)) {
                 song.Title = title.GetString();
+            }
+            if(json.RootElement.TryGetProperty("filename", out filename)) {
+                song.DiskPath = filename.GetString();
             }
         }
     }
