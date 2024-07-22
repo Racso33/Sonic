@@ -9,7 +9,7 @@
         public MainForm() {
             Program.mainForm = this;
             InitializeComponent();
-            //songViewer3.SetPlaylist(Program.songdb.Playlists[0]);
+            songViewer3.SetPlaylist(playlistViewer2.GetDefaultPlaylist());
         }
 
 
@@ -56,6 +56,43 @@
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e) {
             var dialog = new Preferences();
             dialog.ShowDialog(this);
+        }
+
+        private void removeToolStripMenuItem1_Click(object sender, EventArgs e) {
+            foreach (Playlist item in playlistViewer2.GetSelected()) {
+                Program.songdb.Playlists.Remove(item);
+            }
+        }
+
+        private void removeToolStripMenuItem_Click_1(object sender, EventArgs e) {
+            foreach (Playlist item in playlistViewer2.GetSelected()) {
+                Program.songdb.Playlists.Remove(item);
+            }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e) {
+            foreach (Playlist item in playlistViewer2.GetSelected()) {
+                Program.songdb.Playlists.Remove(item);
+            }
+            playlistViewer2.LoadView();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e) {
+            var playlist = songViewer3.GetPlaylist();
+            foreach (Song song in songViewer3.GetSelected()) {
+                if (playlist.Title == "All Songs") {
+                    /* remove everywhere, completely, purge. from existense. */
+                    Program.songdb.Songs.Remove(song);
+                    foreach (Playlist p in Program.songdb.Playlists) {
+                        p.Songs.Remove(song);
+                    }
+                }
+                else {
+                    /* remove from playlist */
+                    playlist.Songs.Remove(song);
+                }
+            }
+            songViewer3.ReloadView();
         }
     }
 }

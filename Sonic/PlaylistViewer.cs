@@ -15,7 +15,7 @@ namespace Sonic {
             LoadView();
         }
 
-        private void LoadView() {
+        public void LoadView() {
             listView1.Items.Clear();
             var i = new ListViewItem("All Songs");
             i.Tag = Program.songdb.GetAllSongs();
@@ -24,6 +24,9 @@ namespace Sonic {
                 var pi = PlaylistToListItem(p);
                 listView1.Items.Add(pi);
             }
+        }
+        public Playlist GetDefaultPlaylist() {
+            return listView1.Items[0].Tag as Playlist;
         }
         private ListViewItem PlaylistToListItem(Playlist p) {
             var res = new ListViewItem(p.Title);
@@ -35,6 +38,14 @@ namespace Sonic {
             var item = new ListViewItem();
             listView1.Items.Add(item);
             item.BeginEdit();
+        }
+        public List<Playlist> GetSelected() {
+            var res = new List<Playlist>();
+            foreach(ListViewItem p in listView1.SelectedItems) {
+                if (p.Text == "All Songs") continue;
+                res.Add(p.Tag as Playlist);
+            }
+            return res;
         }
 
         private void listView1_AfterLabelEdit(object sender, LabelEditEventArgs e) {

@@ -77,6 +77,9 @@ namespace Sonic {
                 var title = db.CreateElement("Title");
                 title.InnerText = si.Title;
                 node.AppendChild(title);
+                var diskpath = db.CreateElement("DiskPath");
+                diskpath.InnerText = si.DiskPath;
+                node.AppendChild(diskpath);
                 songsnode.AppendChild(node);
             }
             db.Save(XmlFile);
@@ -125,6 +128,8 @@ namespace Sonic {
                 var si = new Song();
                 var title = i.SelectSingleNode("Title");
                 si.Title = title.InnerText;
+                var diskpath = i.SelectSingleNode("DiskPath");
+                if(diskpath != null) si.DiskPath = diskpath.InnerText;
                 res.Add(si);
             }
             return res;

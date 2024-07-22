@@ -26,11 +26,12 @@
             listView1 = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
             SuspendLayout();
             // 
             // listView1
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
+            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
             listView1.Dock = DockStyle.Fill;
             listView1.Location = new Point(0, 0);
             listView1.Name = "listView1";
@@ -50,6 +51,11 @@
             columnHeader2.Text = "Id";
             columnHeader2.Width = 120;
             // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Path";
+            columnHeader3.Width = 120;
+            // 
             // SongViewer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -65,5 +71,6 @@
         private ListView listView1;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
     }
 }

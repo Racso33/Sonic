@@ -18,6 +18,7 @@ namespace Sonic {
         public ImportDialog() {
             InitializeComponent();
             songs = new List<Song>();
+            playlists = new List<Playlist>();
         }
 
         private void AddSong(Song song) {
@@ -25,8 +26,13 @@ namespace Sonic {
                 songs.Add(song);
             }
         }
+        private void AddPlaylist(Playlist playlist) {
+            if (!playlists.Exists(s => s.Title == playlist.Title)) {
+                playlists.Add(playlist);
+            }
+        }
         private List<Song> GetSongsFromDir(string path) {
-            var files = Directory.EnumerateFileSystemEntries(path);
+            var files = Directory.EnumerateFiles(path, "*", SearchOption.AllDirectories);
             List<Song> songs = new List<Song>();
             foreach (string s in files) {
                 if (s.EndsWith(".mkv") || s.EndsWith(".webm") || s.EndsWith(".flac") || s.EndsWith(".mp3")) {
@@ -78,6 +84,10 @@ namespace Sonic {
                         /* if this fails, it shouldnt add the song. Also,
                            Show a dialog of the failed song downloads.
                         */
+                        if(Program.DownloadLocation == null) {
+                            MessageBox.Show("Download location hasnt been set, you can set it in preferences");
+                            return;
+                        }
                         var downerror = YoutubeDownloader.DownloadSong(s, Program.DownloadLocation);
                         if (!downerror) {
                             failed.Add(s);
@@ -87,8 +97,25 @@ namespace Sonic {
                     Program.songdb.Songs.Add(s);
                 }
             }
+            foreach (Playlist p in playlists) {
+                var exists = false;
+                foreach (Playlist p2 in Program.songdb.Playlists) {
+                    if (p.Title == null || p.Title == p2.Title) {
+                        exists = true;
+                    }
+                }
+                if (!exists) {
+                    Program.songdb.Playlists.Add(p);
+                }
+            }
             Program.mainForm.songviewer.ReloadView();
+            Program.mainForm.playlistviewer.LoadView();
             if(failed.Count > 0) {
+                foreach(Song s in failed) {
+                    foreach (Playlist p in playlists) {
+                        p.Songs.Remove(s);
+                    }
+                }
                 string str = "";
                 foreach(Song s in failed) {
                     str += $"{s.Title}\n";
@@ -138,6 +165,7 @@ namespace Sonic {
                 }
                 AddSong(song);
             }
+            playlists.Add(dialog.result);
             Reload();
         }
     }

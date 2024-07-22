@@ -31,10 +31,10 @@
             contextMenuStrip2 = new ContextMenuStrip(components);
             addToToolStripMenuItem = new ToolStripMenuItem();
             aToolStripMenuItem = new ToolStripMenuItem();
-            removeToolStripMenuItem = new ToolStripMenuItem();
             renameToolStripMenuItem1 = new ToolStripMenuItem();
             contextMenuStrip3 = new ContextMenuStrip(components);
             newPlaylistToolStripMenuItem = new ToolStripMenuItem();
+            toolStripMenuItem2 = new ToolStripMenuItem();
             textBox1 = new TextBox();
             toolStrip1 = new ToolStrip();
             toolStripDropDownButton1 = new ToolStripDropDownButton();
@@ -45,6 +45,7 @@
             songViewer3 = new SongViewer();
             label1 = new Label();
             label2 = new Label();
+            deleteToolStripMenuItem = new ToolStripMenuItem();
             playlistViewer2 = new PlaylistViewer();
             contextMenuStrip1.SuspendLayout();
             contextMenuStrip2.SuspendLayout();
@@ -82,15 +83,15 @@
             // 
             // contextMenuStrip2
             // 
-            contextMenuStrip2.Items.AddRange(new ToolStripItem[] { addToToolStripMenuItem, removeToolStripMenuItem, renameToolStripMenuItem1 });
+            contextMenuStrip2.Items.AddRange(new ToolStripItem[] { addToToolStripMenuItem, renameToolStripMenuItem1, deleteToolStripMenuItem });
             contextMenuStrip2.Name = "contextMenuStrip2";
-            contextMenuStrip2.Size = new Size(118, 70);
+            contextMenuStrip2.Size = new Size(181, 92);
             // 
             // addToToolStripMenuItem
             // 
             addToToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aToolStripMenuItem });
             addToToolStripMenuItem.Name = "addToToolStripMenuItem";
-            addToToolStripMenuItem.Size = new Size(117, 22);
+            addToToolStripMenuItem.Size = new Size(180, 22);
             addToToolStripMenuItem.Text = "Add To";
             // 
             // aToolStripMenuItem
@@ -99,24 +100,17 @@
             aToolStripMenuItem.Size = new Size(80, 22);
             aToolStripMenuItem.Text = "a";
             // 
-            // removeToolStripMenuItem
-            // 
-            removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            removeToolStripMenuItem.Size = new Size(117, 22);
-            removeToolStripMenuItem.Text = "Remove";
-            removeToolStripMenuItem.Click += removeToolStripMenuItem_Click;
-            // 
             // renameToolStripMenuItem1
             // 
             renameToolStripMenuItem1.Name = "renameToolStripMenuItem1";
-            renameToolStripMenuItem1.Size = new Size(117, 22);
+            renameToolStripMenuItem1.Size = new Size(180, 22);
             renameToolStripMenuItem1.Text = "Rename";
             // 
             // contextMenuStrip3
             // 
-            contextMenuStrip3.Items.AddRange(new ToolStripItem[] { newPlaylistToolStripMenuItem });
+            contextMenuStrip3.Items.AddRange(new ToolStripItem[] { newPlaylistToolStripMenuItem, toolStripMenuItem2 });
             contextMenuStrip3.Name = "contextMenuStrip3";
-            contextMenuStrip3.Size = new Size(139, 26);
+            contextMenuStrip3.Size = new Size(139, 48);
             // 
             // newPlaylistToolStripMenuItem
             // 
@@ -124,6 +118,13 @@
             newPlaylistToolStripMenuItem.Size = new Size(138, 22);
             newPlaylistToolStripMenuItem.Text = "New Playlist";
             newPlaylistToolStripMenuItem.Click += newPlaylistToolStripMenuItem_Click;
+            // 
+            // toolStripMenuItem2
+            // 
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new Size(138, 22);
+            toolStripMenuItem2.Text = "Delete";
+            toolStripMenuItem2.Click += toolStripMenuItem2_Click;
             // 
             // textBox1
             // 
@@ -157,26 +158,26 @@
             // importToolStripMenuItem
             // 
             importToolStripMenuItem.Name = "importToolStripMenuItem";
-            importToolStripMenuItem.Size = new Size(180, 22);
+            importToolStripMenuItem.Size = new Size(135, 22);
             importToolStripMenuItem.Text = "Import";
             importToolStripMenuItem.Click += importToolStripMenuItem_Click;
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(180, 22);
+            toolStripMenuItem1.Size = new Size(135, 22);
             toolStripMenuItem1.Text = "Export";
             toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(177, 6);
+            toolStripSeparator1.Size = new Size(132, 6);
             // 
             // preferencesToolStripMenuItem
             // 
             preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            preferencesToolStripMenuItem.Size = new Size(180, 22);
+            preferencesToolStripMenuItem.Size = new Size(135, 22);
             preferencesToolStripMenuItem.Text = "Preferences";
             preferencesToolStripMenuItem.Click += preferencesToolStripMenuItem_Click;
             // 
@@ -213,6 +214,13 @@
             label2.TabIndex = 7;
             label2.Text = "label2";
             // 
+            // deleteToolStripMenuItem
+            // 
+            deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            deleteToolStripMenuItem.Size = new Size(180, 22);
+            deleteToolStripMenuItem.Text = "Delete";
+            deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -243,7 +251,6 @@
         private ToolStripMenuItem renameToolStripMenuItem;
         private ContextMenuStrip contextMenuStrip2;
         private ToolStripMenuItem addToToolStripMenuItem;
-        private ToolStripMenuItem removeToolStripMenuItem;
         private ToolStripMenuItem renameToolStripMenuItem1;
         private ToolStripMenuItem aToolStripMenuItem;
         private ContextMenuStrip contextMenuStrip3;
@@ -261,5 +268,9 @@
         private Label label1;
         private PlaylistViewer playlistViewer2;
         private Label label2;
+        private ToolStripMenuItem removeToolStripMenuItem1;
+        private ToolStripMenuItem removeToolStripMenuItem;
+        private ToolStripMenuItem toolStripMenuItem2;
+        private ToolStripMenuItem deleteToolStripMenuItem;
     }
 }

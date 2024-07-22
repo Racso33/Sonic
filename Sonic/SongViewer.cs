@@ -22,12 +22,16 @@ namespace Sonic {
             _Filter = s;
             ReloadView();
         }
+        public Playlist GetPlaylist() {
+            return _ShownPlaylist;
+        }
         public SongViewer() {
             InitializeComponent();
         }
         ListViewItem CreateSongItem(Song song) {
             var item = new ListViewItem(song.Title);
             item.SubItems.Add(song.WatchId);
+            item.SubItems.Add(song.DiskPath);
             item.Tag = song;
             return item;
         }
@@ -58,6 +62,7 @@ namespace Sonic {
             var res = new ListViewItem(song.Title);
             res.Tag = song;
             res.SubItems.Add(song.WatchId);
+            res.SubItems.Add(song.DiskPath);
             return res;
         }
 
@@ -83,6 +88,13 @@ namespace Sonic {
                 var song = s.Tag as Song;
                 p.Songs.Add(song);
             }
+        }
+        public List<Song> GetSelected() {
+            var res = new List<Song>();
+            foreach(ListViewItem item in  listView1.SelectedItems) {
+                res.Add(item.Tag as Song);
+            }
+            return res;
         }
     }
 }
