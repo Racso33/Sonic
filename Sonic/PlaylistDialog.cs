@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Sonic {
     public partial class PlaylistDialog : Form {
-        public Playlist result;
+        public Playlist? result;
         public PlaylistDialog() {
             InitializeComponent();
         }
@@ -21,7 +21,9 @@ namespace Sonic {
 
         private void button1_Click(object sender, EventArgs e) {
             result = YoutubeDownloader.GetPlaylist(textBox1.Text);
-            DialogResult = DialogResult.OK;
+            if(result != null) {
+                DialogResult = DialogResult.OK;
+            }
             Close();
         }
     }

@@ -12,6 +12,9 @@ namespace Sonic {
     public partial class Preferences : Form {
         public Preferences() {
             InitializeComponent();
+            textBox1.Text = Program.FfmpegPath;
+            textBox2.Text = Program.YtDlpPath;
+            textBox3.Text = Program.DownloadLocation;
         }
 
         private void button2_Click(object sender, EventArgs e) {

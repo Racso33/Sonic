@@ -52,5 +52,10 @@
             var dialog = new ImportDialog();
             dialog.ShowDialog();
         }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e) {
+            var dialog = new Preferences();
+            dialog.ShowDialog(this);
+        }
     }
 }

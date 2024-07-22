@@ -17,6 +17,7 @@ namespace Sonic {
     internal static class Program {
         public static SongDatabase songdb;
         public static MainForm mainForm;
+        public static Persistent persistent;
         public static string FfmpegPath;
         public static string YtDlpPath;
         public static string DownloadLocation;
@@ -28,10 +29,16 @@ namespace Sonic {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            FfmpegPath = "E:\\ffmpeg\\bin\\ffmpeg.exe";
+            YtDlpPath = "E:\\yt-dlp\\yt-dlp.exe";
+            DownloadLocation = "E:\\cool\\toonz\\TestDownload";
             songdb = new SongDatabase();
-            songdb.LoadSongDatabase("C:\\Users\\oscar\\Documents\\Programs\\Music\\SongDb.xml");
+            //songdb.LoadSongDatabase("C:\\Users\\oscar\\Documents\\Programs\\Music\\SongDb.xml");
+            persistent = new Persistent("C:\\Users\\oscar\\Desktop\\TestDocument.xml");
+            persistent.Load();
             mainForm = new MainForm();
             Application.Run(mainForm);
+            persistent.Sync();
         }
     }
 }

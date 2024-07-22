@@ -66,14 +66,9 @@ namespace Sonic {
             if (!ffmpeg) MessageBox.Show("Missing ffmpeg, you can set it in the preferences");
             return ytdlp && ffmpeg;
         }
-        private static string CheckDependencies_AddError(string str, string error) {
-            if(str == null) {
-                return error;
-            }
-            return $"{str}, {error}";
-        }
-        public static Playlist GetPlaylist(string url) {
+        public static Playlist? GetPlaylist(string url) {
             /* Fill playlist with title, and songs. And watchid. */
+            if (!CheckDependencies()) return null;
             Playlist res = PlaylistExtractor.Extract(url);
             return res;
         }

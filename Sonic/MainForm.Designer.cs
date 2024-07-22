@@ -45,6 +45,7 @@
             songViewer3 = new SongViewer();
             label1 = new Label();
             label2 = new Label();
+            playlistViewer2 = new PlaylistViewer();
             contextMenuStrip1.SuspendLayout();
             contextMenuStrip2.SuspendLayout();
             contextMenuStrip3.SuspendLayout();
@@ -156,27 +157,28 @@
             // importToolStripMenuItem
             // 
             importToolStripMenuItem.Name = "importToolStripMenuItem";
-            importToolStripMenuItem.Size = new Size(135, 22);
+            importToolStripMenuItem.Size = new Size(180, 22);
             importToolStripMenuItem.Text = "Import";
             importToolStripMenuItem.Click += importToolStripMenuItem_Click;
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(135, 22);
+            toolStripMenuItem1.Size = new Size(180, 22);
             toolStripMenuItem1.Text = "Export";
             toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(132, 6);
+            toolStripSeparator1.Size = new Size(177, 6);
             // 
             // preferencesToolStripMenuItem
             // 
             preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            preferencesToolStripMenuItem.Size = new Size(135, 22);
+            preferencesToolStripMenuItem.Size = new Size(180, 22);
             preferencesToolStripMenuItem.Text = "Preferences";
+            preferencesToolStripMenuItem.Click += preferencesToolStripMenuItem_Click;
             // 
             // songViewer3
             // 
@@ -184,6 +186,7 @@
             songViewer3.Name = "songViewer3";
             songViewer3.Size = new Size(749, 533);
             songViewer3.TabIndex = 5;
+            // 
             // 
             // playlistViewer1
             // 
