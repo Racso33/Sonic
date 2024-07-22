@@ -9,7 +9,7 @@
         public MainForm() {
             Program.mainForm = this;
             InitializeComponent();
-            songViewer3.SetPlaylist(Program.songdb.Playlists[0]);
+            //songViewer3.SetPlaylist(Program.songdb.Playlists[0]);
         }
 
 

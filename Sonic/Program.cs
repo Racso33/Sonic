@@ -29,12 +29,9 @@ namespace Sonic {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            FfmpegPath = "E:\\ffmpeg\\bin\\ffmpeg.exe";
-            YtDlpPath = "E:\\yt-dlp\\yt-dlp.exe";
-            DownloadLocation = "E:\\cool\\toonz\\TestDownload";
             songdb = new SongDatabase();
             //songdb.LoadSongDatabase("C:\\Users\\oscar\\Documents\\Programs\\Music\\SongDb.xml");
-            persistent = new Persistent("C:\\Users\\oscar\\Desktop\\TestDocument.xml");
+            persistent = new Persistent("C:\\Users\\oscar\\Desktop\\TestDocument2.xml");
             persistent.Load();
             mainForm = new MainForm();
             Application.Run(mainForm);

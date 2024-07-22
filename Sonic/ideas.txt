@@ -1,0 +1,2 @@
+Make everything event based. 
+Writing to disk whenever will be handled with events.
