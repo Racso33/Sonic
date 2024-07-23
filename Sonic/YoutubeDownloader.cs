@@ -105,7 +105,7 @@ namespace Sonic {
             url = iurl;
             res = new Playlist();
             var ytDlpProc = new Process();
-            ytDlpProc.StartInfo.FileName = "E:\\yt-dlp\\yt-dlp.exe";
+            ytDlpProc.StartInfo.FileName = Program.YtDlpPath;
             ytDlpProc.StartInfo.Arguments = $"-j {url}";
             ytDlpProc.StartInfo.UseShellExecute = false;
             ytDlpProc.StartInfo.RedirectStandardOutput = true;

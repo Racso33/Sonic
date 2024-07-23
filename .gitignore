@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Sonic/deleted.txt
+/Sonic/ideas.txt
+/Sonic/todo.txt

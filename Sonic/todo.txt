@@ -1,3 +1,0 @@
-Things I would like to do. Install script, so I can show off to my brother. 
-Better playlist, song control. Like removing songs and playlists.
-Config
