@@ -114,7 +114,7 @@ namespace Sonic {
             ytnode.InnerText = path;
             db.Save(XmlFile);
         }
-        public void Sync() {
+        public void Write() {
             SetSongs(Program.songdb.Songs);
             SetPlaylists(Program.songdb.Playlists);
             SetYtDlpPath(Program.YtDlpPath);
