@@ -68,7 +68,8 @@ namespace Sonic {
 
         private void listView1_MouseDown(object sender, MouseEventArgs e) {
             if(e.Button == MouseButtons.Right && listView1.SelectedItems.Count > 0) {
-                ShowContextMenu(e.Location);
+                var p = PointToScreen(e.Location);
+                ShowContextMenu(p);
             }
         }
         private void ShowContextMenu(Point p) {

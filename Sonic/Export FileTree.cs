@@ -28,14 +28,7 @@ namespace Sonic {
                 if (!r) return;
             }
             Program.songdb.CreatePlaylistDirectory(textBox1.Text);
-            progressBar1.Value = 100;
-            //double prog=0;
-            //var thread = new Thread(() => Program.songdb.CreatePlaylistDirectory(textBox1.Text, out prog));
-            //thread.Start();
-            //while (prog < 1) {
-            //    progressBar1.Value = (int)prog*100;
-            //    Thread.Sleep(50);
-            //}
+            progressBar1.Value = 100;   /* maybe make it show real progress... This looks cool tho */
             Process.Start("explorer.exe", textBox1.Text);
             Close();
         }

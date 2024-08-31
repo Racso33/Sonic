@@ -70,7 +70,8 @@ namespace Sonic {
 
         private void listView1_MouseDown(object sender, MouseEventArgs e) {
             if (e.Button == MouseButtons.Right) {
-                Program.mainForm.menustrip3.Show(e.Location);
+                var p = PointToScreen(e.Location);
+                Program.mainForm.menustrip3.Show(p);
             }
         }
     }

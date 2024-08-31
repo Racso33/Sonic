@@ -8,18 +8,6 @@ using System.Xml;
 namespace Sonic {
 
     internal class Persistent {
-        /* id songs internally? 
-           or just use title.
-           then, playlists reference songs with ids.
-           One thing that slightly confuses me is, how a song represents a song on disk,
-           while also being a thing that exists in memory. Idk for some reason that makes me feel
-           a lil weird when imagining.
-
-           The ids are internal to xml file.
-           Find song.
-           Internal ids wont work, because they become dependent on the songs having been created.
-           Having the same title is the most practical. For sure. Also the most simple.
-        */
         private XmlDocument db;
         public string XmlFile;
         public Song ToSong(XmlNode node) {
@@ -29,8 +17,6 @@ namespace Sonic {
             return si;
         }
         public Song? FindSong(int id) {
-            /* returns song object, or node...
-            */
             var nodes = db.DocumentElement.SelectNodes("Songs/*");
             foreach(XmlNode n in nodes) {
                 var idnode = n.SelectSingleNode("Id");

@@ -9,50 +9,6 @@ using System.Threading.Tasks;
 
 namespace Sonic {
     internal class YoutubeDownloader {
-        /*
-        download, getinfo.
-        Get songs in a playlist.
-        Giving a list of songs. Songs that dont have a disk path. That can be downloaded.
-        A playlist? Or List of songs?
-        Playlist makes more sense.
-
-        New class which contains the process creation.
-        How would this abstraction make my life easier? It would
-        give me a way of compartamentalizing code. Theres no reason
-        to abstract too much tho. Because this class is the 
-        download, getinfo extractor. So theres no reason to make an
-        abstraction for the process.
-
-        YtInfoExtractor. Or make a new process
-        Process object. Thats reusable.
-
-        Getting info. Idrk what to do. I mean having the CreateYtInfoExtractor
-        makes sense because its part of getplaylist. I dont see why I should
-        try to abstract that.
-
-        How do I get output. Maybe instead, make thing.
-        GetPlaylist gets the playlist. Why would I make an abstraction internally?
-        Bottom up. Download info from a playlist. Which involves creating a yt-dlp process.
-        Using the yt-dlp process could be a function. I think thats actually logical. Of course.
-
-        Whats the difference between a playlist and song? If you get data from a playlist it 
-        should return a playlist. Otherwise return song. Make a function for recieving a playlist
-        and one for song? It would have to identify a playlist then. Obviously, a playlist should
-        have a unique process called on it. It wouldnt be the same. It would also return a different
-        thing. Maybe I could then wrap it in a result thing. Which would either be a playlist or
-        song. 
-        Playlist process. New object? Or just function? Function is probably for the better. More dynamic.
-        Objects are nice sometimes, but its a tool. That shouldnt be overused. Kind of like directories and files.
-        Splitting things across directories can be nice. But can also make it harder to navigate.
-        Anyways... ExtractPlaylist() -> Playlist
-        Whether I create a bunch of useless functions is whatever. 
-
-        Object that 
-
-
-        TODOOOOO:
-        Error reporting
-        */
         private static bool CheckYtDlp() {
             return File.Exists(Program.YtDlpPath);
         }
@@ -90,14 +46,10 @@ namespace Sonic {
     }
 
     class PlaylistExtractor {
-        /* Create, then extract?
-           Or, Create, which extracts.
-        */
         Playlist res;
         string url;
         string errorlog;
         public static Playlist Extract(string url) {
-            /* Create a object that does things */
             var extractor = new PlaylistExtractor(url);
             return extractor.res;
         }
